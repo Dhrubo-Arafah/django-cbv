@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+{% block content %}
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for student in student_list %}
+      <tr>
+      <th scope="row">{{ forloop.counter }}</th>
+      <td><a href="{% url 'student-detail' pk=student.pk %}">{{ student.name }}</a> </td>
+      <td>{{ student.email }}</td>
+      <td><a href="{% url 'update-student' pk=student.pk %}" class="btn btn-info">Update</a> | <a href="{% url 'delete-student' pk=student.pk %}" class="btn btn-danger">Delete</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+
+    </ul>
+{% endblock %}

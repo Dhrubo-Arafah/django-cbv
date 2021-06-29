@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+{% block content %}
+    <table class="table">
+        <tbody>
+        <tr>
+            <th scope="col">ID</th>
+            <td>{{ student.pk }}</td>
+        </tr>
+        <tr>
+            <th scope="col">Name</th>
+            <td>{{ student.name }}</td>
+        </tr>
+        <tr>
+            <th scope="col">Email</th>
+            <td>{{ student.email }}</td>
+        </tr>
+        <tr>
+            <th scope="col">Actions</th>
+            <td colspan="2"><a href="{% url 'update-student' pk=student.pk %}" class="btn btn-info">Update</a> | <a href="{% url 'delete-student' pk=student.pk %}" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+{% endblock %}
